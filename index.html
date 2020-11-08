@@ -6,7 +6,27 @@
 
 <div id="book" class="book">
 <canvas id="pageflip-canvas"></canvas>
-<div id="pages">
+<div id="pages" class="pages">
+<section>
+<div> <!-- Any type of contents here --> </div>
+</section>
+</div>
+<div id="pages" class="pages">
+<section>
+<div> <!-- Any type of contents here --> </div>
+</section>
+</div>
+ <div id="pages" class="pages">
+<section>
+<div> <!-- Any type of contents here --> </div>
+</section>
+</div>
+ <div id="pages" class="pages">
+<section>
+<div> <!-- Any type of contents here --> </div>
+</section>
+</div>
+ <div id="pages" class="pages">
 <section>
 <div> <!-- Any type of contents here --> </div>
 </section>
@@ -20,15 +40,13 @@
     background:#ff0000;
     width:90px;
     height:90px;}
+ div.pages{
+  background:#ffffff;
+  width:80px;
+  height: 80px;
 </style>
 
 <script>
-var BOOK_WIDTH = 830;
-var BOOK_HEIGHT = 260;
-var PAGE_WIDTH = 400;
-var PAGE_HEIGHT = 250;
-var PAGE_Y = ( BOOK_HEIGHT - PAGE_HEIGHT ) / 2;
-var CANVAS_PADDING = 60;
 
 var book = document.getElementById( "book" );
 var pages = book.getElementsByTagName( "section" );
