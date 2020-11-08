@@ -1,204 +1,105 @@
 
 <!DOCTYPE html>
-<html>
-<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
-<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app105.us.archive.org';v.server_ms=523;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/playback.bundle.js?v=VsAvnOBw" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/wombat.js?v=cRqOKCOw" charset="utf-8"></script>
-<script type="text/javascript">
-  __wm.init("https://web.archive.org/web");
-  __wm.wombat("http://dev.sencha.com:80/animator/demos/pageflip/","20160527114850","https://web.archive.org/","web","/_static/",
-	      "1464349730");
-</script>
-<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=abzd_s8g" />
-<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ" />
-<!-- End Wayback Rewrite JS Include -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jBooklet - jQuery Plugin. Demo</title>
 
-<meta charset="UTF-8">
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
 
-<title>PageFlip &middot; Made with Sencha Animator</title>
-
-<link rel="stylesheet" href="https://web.archive.org/web/20160527114850cs_/http://www.sencha.com/assets/css/external.css">
-
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" media="all">
+    <link href="https://rawgithub.com/Zlobin/jBooklet/master/src/jquery.jbooklet.css" rel="stylesheet" media="all">
+    <style>
+      body {
+        text-rendering: optimizeLegibility;
+      }
+      h1 {
+        text-align: center;
+      }
+      h3 {
+        margin-top: 3px;
+        margin-bottom: 3px;
+      }
+      .b-page {
+        border: 1px solid #ccc;
+      }
+      .b-page.b-grab {
+        border: none;
+      }
+      p {
+        font-size: .7em;
+        font-family: Baskerville, ‘Times New Roman’, Times, serif;
+        line-height: 1.4;
+      }
+    </style>
 </head>
-<body><!-- BEGIN WAYBACK TOOLBAR INSERT -->
-<style type="text/css">
-body {
-  margin-top:0 !important;
-  padding-top:0 !important;
-  /*min-width:800px !important;*/
-}
-</style>
-<script>__wm.rw(0);</script>
-<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;">
-<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
-<div id="wm-ipp-inside">
-  <div style="position:relative;">
-    <div id="wm-logo" style="float:left;width:110px;padding-top:12px;">
-      <a href="/web/" title="Wayback Machine home page"><img src="/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="/_static/images/toolbar/wayback-toolbar-logo-100.png, /_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, /_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0" /></a>
-    </div>
-    <div class="r" style="float:right;">
-      <div id="wm-btns" style="text-align:right;height:25px;">
-                  <div id="wm-save-snapshot-success">success</div>
-          <div id="wm-save-snapshot-fail">fail</div>
-          <a id="wm-save-snapshot-open" href="#"
-	     title="Share via My Web Archive" >
-            <span class="iconochive-web"></span>
-          </a>
-          <a href="https://archive.org/account/login.php"
-             title="Sign In"
-             id="wm-sign-in"
-          >
-            <span class="iconochive-person"></span>
-          </a>
-          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
-        	<a href="http://faq.web.archive.org/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
-	<a id="wm-tb-close" href="#close" onclick="__wm.h(event);return false;" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
-      </div>
-      <div id="wm-share">
-          <a href="/web/20160527114850/http://web.archive.org/screenshot/http://dev.sencha.com/animator/demos/pageflip/"
-             id="wm-screenshot"
-             title="screenshot">
-            <span class="wm-icon-screen-shot"></span>
-          </a>
-	<a id="wm-share-facebook" href="#" data-url="https://web.archive.org/web/20160527114850/http://dev.sencha.com:80/animator/demos/pageflip/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
-	<a id="wm-share-twitter" href="#" data-url="https://web.archive.org/web/20160527114850/http://dev.sencha.com:80/animator/demos/pageflip/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
-      </div>
-    </div>
-    <table class="c" style="">
-      <tbody>
-	<tr>
-	  <td class="u" colspan="2">
-	    <form target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://dev.sencha.com/animator/demos/pageflip/" onfocus="this.focus();this.select();" /><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20160527114850" /><input type="submit" value="Go" /></form>
-	  </td>
-	  <td class="n" rowspan="2" style="width:110px;">
-	    <table>
-	      <tbody>
-		<!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
-		<tr class="m">
-		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20160426140531/http://dev.sencha.com:80/animator/demos/pageflip/" title="26 Apr 2016"><strong>Apr</strong></a></td>
-		  <td class="c" id="displayMonthEl" title="You are here: 11:48:50 May 27, 2016">MAY</td>
-		  <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20170315013543/http://dev.sencha.com/animator/demos/pageflip/" title="15 Mar 2017"><strong>Mar</strong></a></td>
-		</tr>
-		<!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
-		<tr class="d">
-		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20160426140531/http://dev.sencha.com:80/animator/demos/pageflip/" title="14:05:31 Apr 26, 2016"><img src="/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0" /></a></td>
-		  <td class="c" id="displayDayEl" style="width:34px;font-size:24px;white-space:nowrap;" title="You are here: 11:48:50 May 27, 2016">27</td>
-		  <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20170315013543/http://dev.sencha.com/animator/demos/pageflip/" title="01:35:43 Mar 15, 2017"><img src="/_static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0" /></a></td>
-		</tr>
-		<!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
-		<tr class="y">
-		  <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20150429123543/http://dev.sencha.com:80/animator/demos/pageflip/" title="29 Apr 2015"><strong>2015</strong></a></td>
-		  <td class="c" id="displayYearEl" title="You are here: 11:48:50 May 27, 2016">2016</td>
-		  <td class="f" nowrap="nowrap">2017</td>
-		</tr>
-	      </tbody>
-	    </table>
-	  </td>
-	</tr>
-	<tr>
-	  <td class="s">
-	    	    <div id="wm-nav-captures">
-	      	      <a class="t" href="/web/20160527114850*/http://dev.sencha.com/animator/demos/pageflip/" title="See a list of every capture for this URL">162 captures</a>
-	      <div class="r" title="Timespan for captures of this URL">27 Oct 2010 - 15 Mar 2017</div>
-	      </div>
-	  </td>
-	  <td class="k">
-	    <a href="" id="wm-graph-anchor">
-	      <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
-		<canvas id="wm-sparkline-canvas" width="625" height="27" border="0"></canvas>
-	      </div>
-	    </a>
-	  </td>
-	</tr>
-      </tbody>
-    </table>
-    <div style="position:absolute;bottom:0;right:2px;text-align:right;">
-      <a id="wm-expand" class="wm-btn wm-closed" href="#expand" onclick="__wm.ex(event);return false;"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span style="font-size:80%">About this capture</span></a>
-    </div>
-  </div>
-    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
-                    <div id="wm-capinfo-collected-by">
-    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center">COLLECTED BY</div>
-    <div style="padding:3px;position:relative" id="wm-collected-by-content">
-            <div style="display:inline-block;vertical-align:top;width:50%;">
-			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls);"></span>
-		Organization: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a>
-		<div style="max-height:75px;overflow:hidden;position:relative;">
-	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
-	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
-	</div>
-	      </div>
-      <div style="display:inline-block;vertical-align:top;width:49%;">
-			<span class="c-logo" style="background-image:url(https://archive.org/services/img/alexacrawls)"></span>
-		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/alexacrawls" target="_new"><span class="wm-title">Alexa Crawls</span></a></div>
-		<div style="max-height:75px;overflow:hidden;position:relative;">
-	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
-	  Starting in 1996, <a href="http://www.alexa.com/">Alexa Internet</a> has been donating their crawl data to the Internet Archive.  Flowing in every day, these data are added to the <a href="http://web.archive.org/">Wayback Machine</a> after an embargo period.
-	</div>
-	      </div>
-    </div>
-    </div>
-    <div id="wm-capinfo-timestamps">
-    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+<body>
+  <header>
+    <h1>jBooklet Demo</h1>
+  </header>
+
+  <div id="mybook">
     <div>
-      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
-      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="/_static/images/loading.gif" alt="loading" /></div>
+      <h3>Page 1</h3>
+      <p>
+        Aliquam eget hendrerit augue, quis ultricies risus. Donec lobortis, erat eget convallis elementum, nunc turpis consectetur ipsum, non vehicula velit neque quis libero. Vestibulum ullamcorper augue nulla, sed vehicula neque fermentum eu. Morbi egestas dignissim urna, ut gravida ligula bibendum eu. Etiam rhoncus, justo vel ultricies dictum, elit felis ornare erat, vitae accumsan neque massa eu quam. Sed facilisis mauris ut diam elementum, quis pulvinar eros molestie. Duis lobortis ullamcorper consequat. Donec tellus lectus, blandit eu ultrices nec, feugiat ac tellus. Mauris eleifend dolor a arcu sodales porta. Proin pharetra posuere volutpat.
+      </p>
     </div>
+    <div>
+      <h3>Page 2</h3>
+      <p>
+        Ut rutrum ligula in dolor adipiscing sollicitudin eget vel erat. Vivamus luctus at enim a tempus. Pellentesque mollis vitae sapien eget bibendum. Quisque sodales, libero et sodales rhoncus, felis nisl aliquet magna, in tempor felis arcu sed metus. Aenean suscipit varius tortor, id faucibus neque tempus eget. Sed et nibh tellus. Mauris lectus ante, facilisis et dapibus eu, euismod quis nisl. Cras gravida felis vitae fermentum egestas. Duis in diam ante. Mauris a velit fermentum, interdum arcu non, placerat ante. In viverra turpis id nisi tincidunt feugiat. Suspendisse sed diam urna. Cras libero quam, ultricies non ligula consectetur, hendrerit laoreet risus.
+      </p>
     </div>
-  </div></div></div></div><div id="donato" style="position:relative;width:100%;">
-  <div id="donato-base">
-    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;transpiled=0&amp;referer=https%3A//web.archive.org/web/20160527114850/http%3A//dev.sencha.com/animator/demos/pageflip/"
-	    scrolling="no" frameborder="0" style="width:100%; height:100%">
-    </iframe>
+    <div>
+      <h3>Page 3</h3>
+      <p>
+        Ut vulputate leo at eros bibendum fringilla. Proin eu lacus ac ipsum suscipit volutpat. Phasellus nec enim felis. Morbi porttitor interdum interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non bibendum dolor. Curabitur sodales tincidunt quam, ut suscipit leo aliquet et. Donec porta sed neque nec rutrum. Nullam dapibus, ante nec rutrum elementum, mi arcu blandit mi, ac ullamcorper massa eros in felis. Proin a nibh nec mi hendrerit consequat. Vestibulum hendrerit sapien non fermentum molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet egestas mi. Integer feugiat ipsum erat, non blandit dolor gravida nec. Pellentesque sit amet quam ligula. Nulla urna nisi, auctor et turpis in, tristique vehicula nibh.
+      </p>
+    </div>
+    <div>
+      <h3>Page 4</h3>
+      <p>
+        Donec sed varius tortor, a facilisis diam. Praesent in felis ac nibh congue blandit ac in mi. Vestibulum aliquam nunc a turpis dignissim molestie. Duis sed lacus quis massa cursus condimentum. Praesent lacinia dictum massa, quis pretium mi ullamcorper sed. Vivamus quam magna, eleifend eu pellentesque ut, aliquam eu nibh. In porta, leo semper porta porta, velit tellus tincidunt mauris, non venenatis urna mauris eget tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ut massa nisl. Vestibulum facilisis, nulla in molestie mollis, velit nibh tempor est, ut volutpat mauris arcu at turpis. In sem massa, posuere quis blandit non, ultrices at odio. Ut sed magna lobortis, cursus dolor id, fringilla tortor. Nunc sagittis augue non fermentum sagittis.
+      </p>
+    </div>
+    <div>
+      <h3>Page 5</h3>
+      <p>
+        Aliquam eget hendrerit augue, quis ultricies risus. Donec lobortis, erat eget convallis elementum, nunc turpis consectetur ipsum, non vehicula velit neque quis libero. Vestibulum ullamcorper augue nulla, sed vehicula neque fermentum eu. Morbi egestas dignissim urna, ut gravida ligula bibendum eu. Etiam rhoncus, justo vel ultricies dictum, elit felis ornare erat, vitae accumsan neque massa eu quam. Sed facilisis mauris ut diam elementum, quis pulvinar eros molestie. Duis lobortis ullamcorper consequat. Donec tellus lectus, blandit eu ultrices nec, feugiat ac tellus. Mauris eleifend dolor a arcu sodales porta. Proin pharetra posuere volutpat.
+      </p>
+    </div>
+    <div>
+      <h3>Page 6</h3>
+      <p>
+        Aliquam eget hendrerit augue, quis ultricies risus. Donec lobortis, erat eget convallis elementum, nunc turpis consectetur ipsum, non vehicula velit neque quis libero. Vestibulum ullamcorper augue nulla, sed vehicula neque fermentum eu. Morbi egestas dignissim urna, ut gravida ligula bibendum eu. Etiam rhoncus, justo vel ultricies dictum, elit felis ornare erat, vitae accumsan neque massa eu quam. Sed facilisis mauris ut diam elementum, quis pulvinar eros molestie. Duis lobortis ullamcorper consequat. Donec tellus lectus, blandit eu ultrices nec, feugiat ac tellus. Mauris eleifend dolor a arcu sodales porta. Proin pharetra posuere volutpat.
+      </p>
+    </div>
+    <div>
+      <h3>Page 7</h3>
+      <p>
+        Ut vulputate leo at eros bibendum fringilla. Proin eu lacus ac ipsum suscipit volutpat. Phasellus nec enim felis. Morbi porttitor interdum interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam non bibendum dolor. Curabitur sodales tincidunt quam, ut suscipit leo aliquet et. Donec porta sed neque nec rutrum. Nullam dapibus, ante nec rutrum elementum, mi arcu blandit mi, ac ullamcorper massa eros in felis. Proin a nibh nec mi hendrerit consequat. Vestibulum hendrerit sapien non fermentum molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet egestas mi. Integer feugiat ipsum erat, non blandit dolor gravida nec. Pellentesque sit amet quam ligula. Nulla urna nisi, auctor et turpis in, tristique vehicula nibh.
+      </p>
+    </div>
+    <div>
+      <h3>Page 8</h3>
+      <p>
+        Aliquam eget hendrerit augue, quis ultricies risus. Donec lobortis, erat eget convallis elementum, nunc turpis consectetur ipsum, non vehicula velit neque quis libero. Vestibulum ullamcorper augue nulla, sed vehicula neque fermentum eu. Morbi egestas dignissim urna, ut gravida ligula bibendum eu. Etiam rhoncus, justo vel ultricies dictum, elit felis ornare erat, vitae accumsan neque massa eu quam. Sed facilisis mauris ut diam elementum, quis pulvinar eros molestie. Duis lobortis ullamcorper consequat. Donec tellus lectus, blandit eu ultrices nec, feugiat ac tellus. Mauris eleifend dolor a arcu sodales porta. Proin pharetra posuere volutpat.
+      </p>
+    </div>
   </div>
-</div><script type="text/javascript">
-__wm.bt(625,27,25,2,"web","http://dev.sencha.com/animator/demos/pageflip/","20160527114850",1996,"/_static/",["/_static/css/banner-styles.css?v=abzd_s8g","/_static/css/iconochive.css?v=qtvMKcIJ"]);
-  __wm.rw(1);
-</script>
-<!-- END WAYBACK TOOLBAR INSERT -->
 
-<a href="https://web.archive.org/web/20160527114850/http://www.sencha.com/" id="logo"><img src="https://web.archive.org/web/20160527114850im_/http://www.sencha.com/assets/images/logo-sencha-sm.png" alt="" height="50" width="120"/></a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://rawgit.com/Zlobin/jBooklet/master/src/jquery.jbooklet.js"></script>
 
-<h1>Sencha Animator Demo: Page Flipping in Pure CSS</h1>
-
-<div id="stage-container">
-    <iframe src="/web/20160527114850if_/http://dev.sencha.com/animator/demos/pageflip/deploy/index.html" frameborder="0" height="525" width="705"></iframe>
-</div>
-
-<p id="download"><a href="pageflip.zip">Download Project Files</a></p>
-
-<p>Sencha Animator is a powerful desktop application to create awesome CSS3 animations for WebKit browsers and touchscreen mobile devices. Make your static content come to life quickly and easily, without the dependency of third-party plugins or writing a single line of CSS code. In no time at all, you&rsquo;ll be creating rich experiences for today&rsquo;s most popular devices.</p>
-<p><a href="https://web.archive.org/web/20160527114850/http://www.sencha.com/products/animator/">Read more at Sencha.com &raquo;</a></p>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://web.archive.org/web/20160527114850/https://ssl." : "https://web.archive.org/web/20160527114850/http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-try{
-var pageTracker = _gat._getTracker("UA-1396058-1");
-pageTracker._initData();
-pageTracker._trackPageview();
-} catch(err) {}</script>
-
+  <script>
+    $(function() {
+      $('#mybook').booklet();
+    });
+  </script>
 </body>
-</html><!--
-     FILE ARCHIVED ON 11:48:50 May 27, 2016 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 01:12:33 Nov 08, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  exclusion.robots.policy: 0.328
-  load_resource: 386.805 (2)
-  PetaboxLoader3.datanode: 124.758 (5)
-  CDXLines.iter: 21.736 (3)
-  esindex: 0.01
-  PetaboxLoader3.resolve: 277.903
-  LoadShardBlock: 98.525 (3)
-  RedisCDXSource: 0.97
-  captures_list: 127.745
-  exclusion.robots: 0.338
--->
+</html>
