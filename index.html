@@ -9,9 +9,6 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
     <![endif]-->
     
-    <script>var yid = 'decimal-to-binary-converter';
-function pscm(e){e.preventDefault&&e.preventDefault();var t=document.getElementById("commentname").value,n=document.getElementById("commenttext").value;if(n.length>2048)return alert("Sorry your comment is too long."),!1;var m=new XMLHttpRequest,o="commentname="+encodeURIComponent(t)+"&yid="+encodeURIComponent(yid)+"&commenttext="+encodeURIComponent(n);return m.open("POST","/_yrme",!0),m.setRequestHeader("Content-type","application/x-www-form-urlencoded"),m.onreadystatechange=function(){4===m.readyState&&200===m.status?(document.getElementById("message").innerHTML="Your comment saved successfully and will be published after it is approved.",document.getElementById("commentname").value="",document.getElementById("commenttext").value=""):document.getElementById("message").innerHTML="There was an error, please try again later.",document.getElementById("message").style.visibility="visible"},m.send(o),!1}document.getElementById("message").style.visibility="hidden";var frmcomment=document.getElementById("frmcomment");frmcomment.attachEvent?frmcomment.attachEvent("submit",pscm):frmcomment.addEventListener("submit",pscm);</script>
-
     <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" media="all">
     <link href="https://rawgithub.com/Zlobin/jBooklet/master/src/jquery.jbooklet.css" rel="stylesheet" media="all">
     <style>
@@ -119,23 +116,7 @@ function pscm(e){e.preventDefault&&e.preventDefault();var t=document.getElementB
     </div>
     <div class="page">
       <h3>Page 6</h3>
-        <form name="converterForm" id="converterForm" method="post">
-    <div class="halfdiv">
-        <label for="tabin">Decimal Value (max: 9223372036854775807)</label>
-        <input type="text" name="tabin" id="tabin" value="7" title="Decimal value that will converted to hex" required />
-        <label for="padding" style="display:inline-block;"><input type="checkbox" name="padding" id="padding"  />Padding</label>
-
-        <button type="submit">Convert</button>
-    </div>
-    
-    <div class="halfdiv">
-        <label for="resulttxt">Binary Value</label>
-        <textarea name="resulttxt" cols="38" rows="1" id="resulttxt" title="Binary value converted from decimal"></textarea>
-   <span>swap conversion:</span> <a href="/binary-to-decimal-converter" title="Binary To Decimal Converter">Binary To Decimal Converter</a>
-    </div>
-    
-<div class="clear"></div>
-</form>
+       
       <img src="sixth page"></img>
       <p>
       </p>
