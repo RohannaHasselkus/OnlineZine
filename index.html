@@ -116,6 +116,23 @@
     </div>
     <div class="page">
       <h3>Page 6</h3>
+        <form name="converterForm" id="converterForm" method="post">
+    <div class="halfdiv">
+        <label for="tabin">Decimal Value (max: 9223372036854775807)</label>
+        <input type="text" name="tabin" id="tabin" value="7" title="Decimal value that will converted to hex" required />
+        <label for="padding" style="display:inline-block;"><input type="checkbox" name="padding" id="padding"  />Padding</label>
+
+        <button type="submit">Convert</button>
+    </div>
+    
+    <div class="halfdiv">
+        <label for="resulttxt">Binary Value</label>
+        <textarea name="resulttxt" cols="38" rows="1" id="resulttxt" title="Binary value converted from decimal"></textarea>
+   <span>swap conversion:</span> <a href="/binary-to-decimal-converter" title="Binary To Decimal Converter">Binary To Decimal Converter</a>
+    </div>
+    
+<div class="clear"></div>
+</form>
       <img src="sixth page"></img>
       <p>
       </p>
