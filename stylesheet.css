@@ -1,20 +1,8 @@
-/*
- * jBooklet jQuery Plugin
- * Copyright (c) 2014 Eugene Zlobin (http://zlobin.pro/zlobin_eng.html)
- *
- * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
- *
- * Version : 2.4.4
- *
- * Originally based on the work of:
- *	1) Charles Mangin (http://clickheredammit.com/pageflip/)
- *	2) William Grauvogel (http://builtbywill.com/)
- */
 
 .booklet {
   width: 800px;
   height: 600px;
-  position: relative;
+  position: center;
   margin: 0 auto 10px;
 }
 
