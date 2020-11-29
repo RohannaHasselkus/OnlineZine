@@ -2,7 +2,55 @@
 <html>
 <head>
 	<link href="stylesheet.css" rel="stylesheet" type="text/css">
-	<script>
+</head>
+<body>	
+<div id="container" class="container">	
+
+	<div class="menu-panel">
+		<h3>Table of Contents</h3>
+		<ul id="menu-toc" class="menu-toc">
+			<li class="menu-toc-current"><a href="#item1">Self-destruction</a></li>
+			<li><a href="#item2">Why we die</a></li>
+			<li><a href="#item3">The honeymoon</a></li>
+			<li><a href="#item4">A drawing joke</a></li>
+			<li><a href="#item5">Commencing practice</a></li>
+		</ul>
+	</div>
+
+	<div class="bb-custom-wrapper">
+
+		<div id="bb-bookblock" class="bb-bookblock">
+
+			<div class="bb-item" id="item1">
+				<div class="content">
+					<div class="scroller">
+						<h2>Self-destruction</h2>
+						<p>...</p>
+					</div>
+				</div><!-- /content -->
+			</div><!-- /bb-item -->
+
+			<div class="bb-item" id="item2"><!-- ... --></div>
+
+			<div class="bb-item" id="item3"><!-- ... --></div>
+
+			<div class="bb-item" id="item4"><!-- ... --></div>
+
+			<div class="bb-item" id="item5"><!-- ... --></div>
+
+		</div><!-- /bb-bookblock -->
+		
+		<nav>
+			<a id="bb-nav-prev" href="#">←</a>
+			<a id="bb-nav-next" href="#">→</a>
+		</nav>
+
+		<span id="tblcontents" class="menu-button">Table of Contents</span>
+
+	</div><!-- /bb-custom-wrapper -->
+
+</div><!-- /container -->
+<script type="text/javascript">
 		var $container = $( '#container' ),
 
 	// the element we will apply the BookBlock plugin to
@@ -190,53 +238,5 @@ function closeTOC( callback ) {
 }
 
 	</script>
-</head>
-<body>	
-<div id="container" class="container">	
-
-	<div class="menu-panel">
-		<h3>Table of Contents</h3>
-		<ul id="menu-toc" class="menu-toc">
-			<li class="menu-toc-current"><a href="#item1">Self-destruction</a></li>
-			<li><a href="#item2">Why we die</a></li>
-			<li><a href="#item3">The honeymoon</a></li>
-			<li><a href="#item4">A drawing joke</a></li>
-			<li><a href="#item5">Commencing practice</a></li>
-		</ul>
-	</div>
-
-	<div class="bb-custom-wrapper">
-
-		<div id="bb-bookblock" class="bb-bookblock">
-
-			<div class="bb-item" id="item1">
-				<div class="content">
-					<div class="scroller">
-						<h2>Self-destruction</h2>
-						<p>...</p>
-					</div>
-				</div><!-- /content -->
-			</div><!-- /bb-item -->
-
-			<div class="bb-item" id="item2"><!-- ... --></div>
-
-			<div class="bb-item" id="item3"><!-- ... --></div>
-
-			<div class="bb-item" id="item4"><!-- ... --></div>
-
-			<div class="bb-item" id="item5"><!-- ... --></div>
-
-		</div><!-- /bb-bookblock -->
-		
-		<nav>
-			<a id="bb-nav-prev" href="#">←</a>
-			<a id="bb-nav-next" href="#">→</a>
-		</nav>
-
-		<span id="tblcontents" class="menu-button">Table of Contents</span>
-
-	</div><!-- /bb-custom-wrapper -->
-
-</div><!-- /container -->
 </body>
 </html>	
