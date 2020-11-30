@@ -1,57 +1,453 @@
 <!doctype html>
 <html>
 <head>
-	<link href="stylesheet.css" rel="stylesheet" type="text/css">
-</head>
-<body>	
-<div id="container" class="container">	
+	<style type="text/css">
+		/* Content Flip Style */
+.bb-bookblock {
+	width: 400px;
+	height: 300px;
+	position: relative;
+	background: #fff;
+	z-index: 100;
+}
 
-	<div class="menu-panel">
-		<h3>Table of Contents</h3>
-		<ul id="menu-toc" class="menu-toc">
-			<li class="menu-toc-current"><a href="#item1">Self-destruction</a></li>
-			<li><a href="#item2">Why we die</a></li>
-			<li><a href="#item3">The honeymoon</a></li>
-			<li><a href="#item4">A drawing joke</a></li>
-			<li><a href="#item5">Commencing practice</a></li>
-		</ul>
-	</div>
+.bb-page {
+	width: 50%;
+	height: 100%;
+	left: 50%;
+	position: absolute;
 
-	<div class="bb-custom-wrapper">
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 
-		<div id="bb-bookblock" class="bb-bookblock">
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	-ms-transform-origin: left center;
+	transform-origin: left center;
+}
 
-			<div class="bb-item" id="item1">
-				<div class="content">
-					<div class="scroller">
-						<h2>Self-destruction</h2>
-						<p>...</p>
-					</div>
-				</div><!-- /content -->
-			</div><!-- /bb-item -->
+.bb-page > div,
+.bb-outer,
+.bb-content {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
 
-			<div class="bb-item" id="item2"><!-- ... --></div>
+.bb-content {
+	background: #fff;
+}
 
-			<div class="bb-item" id="item3"><!-- ... --></div>
+.bb-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
 
-			<div class="bb-item" id="item4"><!-- ... --></div>
+.bb-overlay, .bb-outer {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
 
-			<div class="bb-item" id="item5"><!-- ... --></div>
+.bb-page > div {
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 
-		</div><!-- /bb-bookblock -->
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.bb-back {
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+
+.bb-outer {
+	width: 100%;
+	overflow: hidden;
+	z-index: 999;
+}
+
+.bb-overlay, 
+.bb-flipoverlay {
+	background-color: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 1000;
+}
+
+.bb-flipoverlay {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bb-bookblock > div.bb-page:first-child,
+.bb-bookblock > div.bb-page:first-child .bb-back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.js .bb-item {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	background: #fff;
+}
 		
-		<nav>
-			<a id="bb-nav-prev" href="#">←</a>
-			<a id="bb-nav-next" href="#">→</a>
-		</nav>
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 
-		<span id="tblcontents" class="menu-button">Table of Contents</span>
+html { height: 100%; }
 
-	</div><!-- /bb-custom-wrapper -->
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
 
-</div><!-- /container -->
-<script type="text/javascript">
-		var $container = $( '#container' ),
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #fff;
+	font-weight: 400;
+	font-size: 100%;
+	color: #333;
+	height: 100%;
+}
+
+.js body {
+	overflow: hidden;
+}
+
+a {
+	color: #555;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+.container,
+.bb-custom-wrapper,
+.bb-bookblock {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+	left: 0px;
+	-webkit-transition: left 0.3s ease-in-out;
+	-o-transition: left 0.3s ease-in-out;
+	transition: left 0.3s ease-in-out;
+}
+
+.slideRight {
+	left: 240px;
+}
+
+.no-js .container {
+	padding-left: 240px;
+}
+
+.menu-panel {
+	background: #f1103a;
+	width: 240px;
+	height: 100%;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+.js .menu-panel {
+	position: absolute;
+	left: -240px;
+}
+
+.menu-panel h3 {
+	font-size: 1.8em;
+	padding: 20px;
+	font-weight: 300;
+	color: #fff;
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05);
+} 
+
+.menu-toc {
+	list-style: none;
+}
+
+.menu-toc li a {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	line-height: 3.5;
+	padding: 0 20px;
+	cursor: pointer;
+	background: #f1103a;
+	border-bottom: 1px solid #dd1338;
+}
+
+.menu-toc li a:hover,
+.menu-toc li.menu-toc-current a{
+	background: #dd1338;
+}
+
+.menu-panel div {
+	margin-top: 20px;
+}
+
+.menu-panel div a {
+	text-transform: uppercase;
+	font-size: 0.7em;
+	line-height: 1;
+	padding: 5px 20px;
+	display: block;
+	border: none;
+	color: #bc0b0b;
+	letter-spacing: 1px;
+	font-weight: 800;
+	text-shadow: 0 1px rgba(255,255,255,0.2);
+} 
+
+.menu-panel div a:hover {
+	background: inherit;
+	color: #fff;
+	text-shadow: none;
+}
+
+.bb-custom-wrapper nav {
+	top: 20px;
+	left: 60px;
+	position: absolute;
+	z-index: 1000;
+}
+
+.bb-custom-wrapper nav span,
+.menu-button {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	top: 0;
+	left: 0;
+	background: #f1103a;
+	border-radius: 50%;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+	speak: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.bb-custom-wrapper nav span:hover,
+.menu-button:hover {
+	background: #000;
+}
+
+.bb-custom-wrapper nav span:last-child {
+	left: 40px;
+}
+
+.menu-button {
+	z-index: 1000;
+	left: 20px;
+	top: 20px;
+	text-indent: -9000px;
+}
+
+.menu-button:after {
+	position: absolute;
+	content: '';
+	width: 50%;
+	height: 2px;
+	background: #fff;
+	top: 50%;
+	margin-top: -1px;
+	left: 25%;
+	box-shadow: 0 -4px #fff, 0 4px #fff;
+}
+
+.no-js .bb-custom-wrapper nav span,
+.no-js .menu-button {
+	display: none;
+}
+
+.js .content {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 100%;
+	bottom: 50px;
+	overflow: hidden;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+.scroller {
+	padding: 10px 5% 10px 5%;
+}
+
+.js .content:before,
+.js .content:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	z-index: 100;
+	pointer-events: none;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.js .content:after {
+	top: auto;
+	bottom: 0;
+	background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.content h2 {
+	font-weight: 300;
+	font-size: 4em;
+	padding: 0 0 10px;
+	color: #333;
+	margin: 0 1% 40px;
+	text-align: left;
+	box-shadow: 0 10px 0 rgba(0,0,0,0.02);
+	text-shadow: 0 0 2px #fff;
+}
+
+.no-js .content h2 {
+	padding: 40px 1% 20px;
+}
+
+.content p {
+	font-size: 1.2em;
+	line-height: 1.6;
+	font-weight: 300;
+	padding: 5px 8%;
+	text-align: justify;
+}
+
+@media screen and (max-width: 800px){
+	.no-js .menu-panel {
+		display: none;
+	}
+
+	.no-js .container {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 400px){
+	.menu-panel,
+	.content {
+		font-size: 75%;
+	}
+}
+
+		.jspContainer {
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane {
+	position: absolute;
+	width: 100% !important;
+	left: 0 !important;
+}
+
+.jspVerticalBar {
+	position: absolute;
+	top: 0px;
+	right: 1%;
+	width: 9px;
+	height: 100%;
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+}
+
+.jspContainer:hover .jspVerticalBar {
+	opacity: 1;
+}
+
+.jspCap {
+	display: block;
+	background: #fff;
+}
+
+.jspVerticalBar .jspCap {
+	height: 40px;
+}
+
+.jspTrack {
+	background: rgba(242,242,242,0.5);
+	box-shadow: inset 0 0 1px rgba(0,0,0,0.1), inset 1px 0 4px rgba(0,0,0,0.05);
+	border-radius: 10px;
+	position: relative;
+}
+
+.jspDrag {
+	background: #fff;
+	position: relative;
+	box-shadow: inset -1px 0 8px rgba(0,0,0,0.05);
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+	border: 1px solid #f0f0f0;
+	cursor: pointer;
+}
+
+.jspCorner {
+	background: #fff;
+	float: left;
+	height: 100%;
+}
+
+html .jspCorner {
+	margin: 0 -3px 0 0;
+}
+	</style>
+	<script type="text/javascript">
+	var $container = $( '#container' ),
 
 	// the element we will apply the BookBlock plugin to
 	$bookBlock = $( '#bb-bookblock' ),
@@ -110,15 +506,19 @@
 	transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
 
 	// check if transitions are supported
-	supportTransitions = Modernizr.csstransitions;
-function init() {
+	supportTransitions = Modernizr.csstransitions;	
+	</script>
+	<script type="text/javascript">
+	function init() {
 
 	// initialize jScrollPane on the content div of the first item
 	setJSP( 'init' );
 	initEvents();
 
-}
-function setJSP( action, idx ) {
+}	
+	</script>
+	<script type="text/javascript">
+		function setJSP( action, idx ) {
 		
 	var idx = idx === undefined ? current : idx,
 		$content = $items.eq( idx ).children( 'div.content' ),
@@ -135,7 +535,9 @@ function setJSP( action, idx ) {
 	}
 
 }
-function initEvents() {
+	</script>
+	<script type="text/javascript">
+		function initEvents() {
 
 	// add navigation events
 	$navNext.on( 'click', function() {
@@ -191,7 +593,9 @@ function initEvents() {
 	} );
 
 }
-function updateNavigation( isLastPage ) {
+	</script>
+	<script type="text/javascript">
+		function updateNavigation( isLastPage ) {
 	
 	if( current === 0 ) {
 		$navNext.show();
@@ -207,7 +611,9 @@ function updateNavigation( isLastPage ) {
 	}
 
 }
-function toggleTOC() {
+	</script>
+	<script type="text/javascript">
+		function toggleTOC() {
 	var opened = $container.data( 'opened' );
 	opened ? closeTOC() : openTOC();
 }
@@ -236,7 +642,54 @@ function closeTOC( callback ) {
 	}
 
 }
-
 	</script>
+</head>
+<body>
+	<div id="container" class="container">	
+
+	<div class="menu-panel">
+		<h3>Table of Contents</h3>
+		<ul id="menu-toc" class="menu-toc">
+			<li class="menu-toc-current"><a href="#item1">Self-destruction</a></li>
+			<li><a href="#item2">Why we die</a></li>
+			<li><a href="#item3">The honeymoon</a></li>
+			<li><a href="#item4">A drawing joke</a></li>
+			<li><a href="#item5">Commencing practice</a></li>
+		</ul>
+	</div>
+
+	<div class="bb-custom-wrapper">
+
+		<div id="bb-bookblock" class="bb-bookblock">
+
+			<div class="bb-item" id="item1">
+				<div class="content">
+					<div class="scroller">
+						<h2>Self-destruction</h2>
+						<p>...</p>
+					</div>
+				</div><!-- /content -->
+			</div><!-- /bb-item -->
+
+			<div class="bb-item" id="item2"><!-- ... --></div>
+
+			<div class="bb-item" id="item3"><!-- ... --></div>
+
+			<div class="bb-item" id="item4"><!-- ... --></div>
+
+			<div class="bb-item" id="item5"><!-- ... --></div>
+
+		</div><!-- /bb-bookblock -->
+		
+		<nav>
+			<a id="bb-nav-prev" href="#">←</a>
+			<a id="bb-nav-next" href="#">→</a>
+		</nav>
+
+		<span id="tblcontents" class="menu-button">Table of Contents</span>
+
+	</div><!-- /bb-custom-wrapper -->
+
+</div><!-- /container -->
 </body>
-</html>	
+</html>
